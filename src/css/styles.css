@@ -1,3 +1,9 @@
 body {
     background-color: black;
 }
+div {
+    background-color: white;
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
