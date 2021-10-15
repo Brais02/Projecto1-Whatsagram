@@ -84,12 +84,10 @@ function Fecha() {
         primeraVezFecha++;
         return resultado;
     } else {
-        var comprobarDia = ComprobarDia(dia);
-        var comprobarMes = ComprobarMes(mes);
-        var comprobarAno = ComprobarAno(ano);
+        var comprobarFecha = ComprobarFecha(dia, mes, ano);
 
         /*En caso de que la fecha sea diferente me enviara el resultado de fecha*/
-        if (comprobarDia == false || comprobarMes == false || comprobarAno == false) {
+        if (comprobarFecha == false) {
             return resultado;
         } else {
             return null; //Devuelve null porque al ser el mismo dia no tiene que aparecer el mensaje de la fecha
@@ -97,45 +95,19 @@ function Fecha() {
     }
 }
 
-/*Comprobara si el dia en el que queremos enviar el mensaje
-es el mismo que el dia del anterior mensaje enviado*/
-function ComprobarDia(mensaje) {
+/*Comprobara si la fecha (dia, mes y año) en el que queremos enviar el mensaje
+es el mismo que la fecha del anterior mensaje enviado*/
+function ComprobarFecha(dia, mes, ano) {
 
     /*En caso de que la fecha sea diferente me cambia la fecha por la de este que sera
-    el ultimo mensaje*/
-    if (diaUltimoMensajeEnviado != mensaje) {
-        diaUltimoMensajeEnviado = mensaje;
-        return false; //Me devuelve false porque no es el mismo dia
+    el ultimo mensaje, tanto en dia, mes y año*/
+    if (diaUltimoMensajeEnviado != dia || mesUltimoMensajeEnviado != mes || anoUltimoMensajeEnviado != ano) {
+        diaUltimoMensajeEnviado = dia;
+        mesUltimoMensajeEnviado = mes;
+        anoUltimoMensajeEnviado = ano;
+        return false; //Me devuelve false porque no es la misma fecha 
     } else {
-        return true; //Me devuelve true porque si es el mismo dia
-    }
-}
-
-/*Comprobara si el mes en el que queremos enviar el mensaje
-es el mismo que el mes del anterior mensaje enviado*/
-function ComprobarMes(mensaje) {
-
-    /*En caso de que la fecha sea diferente me cambia la fecha por la de este que sera
-    el ultimo mensaje*/
-    if (mesUltimoMensajeEnviado != mensaje) {
-        mesUltimoMensajeEnviado = mensaje;
-        return false; //Me devuelve false porque no es el mismo mes
-    } else {
-        return true; //Me devuelve true porque si es el mismo mes
-    }
-}
-
-/*Comprobara si el año en el que queremos enviar el mensaje
-es el mismo que el año del anterior mensaje enviado*/
-function ComprobarAno(mensaje) {
-
-    /*En caso de que la fecha sea diferente me cambia la fecha por la de este que sera
-    el ultimo mensaje*/
-    if (anoUltimoMensajeEnviado != mensaje) {
-        anoUltimoMensajeEnviado = mensaje;
-        return false; //Me devuelve false porque no es el mismo año
-    } else {
-        return true; //Me devuelve true porque si es el mismo año
+        return true; //Me devuelve true porque si es la misma fecha
     }
 }
 
