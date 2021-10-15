@@ -5,35 +5,33 @@ var diaUltimoMensajeEnviado;
 var mesUltimoMensajeEnviado;
 var anoUltimoMensajeEnviado;
 
+window.onload = function () {
+    document.getElementById('tecla').onclick = function () {
+        var pru = this.innerHTML;
+        console.log(pru);
+        Letras(pru);
+    }
+}
+
 function Reset() {
     document.getElementById("entrada").value = "";
 }
 
-function Entrada() {
+/*function Entrada() {
     return document.getElementById("entrada").value;
-}
+}*/
 
-function LetraA() {
+function Letras(letra) {
     if (mayuscula == true) {
-        document.getElementById("entrada").value += "A";
+        document.getElementById("entrada").value += letra.toUpperCase();
         mayuscula = false;
     } else if (mayusculaSiempre == true) {
-        document.getElementById("entrada").value += "A";
+        document.getElementById("entrada").value += letra.toUpperCase();
     } else {
-        document.getElementById("entrada").value += "a";
+        document.getElementById("entrada").value += letra.toLowerCase();
     }
 }
 
-function LetraB() {
-    if (mayuscula == true) {
-        document.getElementById("entrada").value += "B";
-        mayuscula = false;
-    } else if (mayusculaSiempre == true) {
-        document.getElementById("entrada").value += "B";
-    } else {
-        document.getElementById("entrada").value += "b";
-    }
-}
 
 /*Enviara los datos que queremos que aparezcan como mensajes*/
 function Enviar() {
