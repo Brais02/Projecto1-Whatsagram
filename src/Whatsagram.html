@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whatsagram 0.3</title>
+    <title>Whatsagram 0.5</title>
     <link rel="shortut icon" type="image/png" href="imagenes/icon.png" sizes="32x32">
 
     <!-- A los estilos -->
@@ -13,16 +14,19 @@
     <!-- El JavaScript -->
     <script src="js/script.js"></script>
 </head>
+
 <body>
     <div id="salida"></div>
-    <input id="entrada" type="text">
-    <button onclick="Enviar()">Enviar</button>
-    <button onclick="Reset()">C</button>
-    <button id="tecla">a</button>
-    <button class="tecla">b</button>
-    <button class="tecla">c</button>
-    <button onclick="Espacio()">Espacio</button>
-    <button onclick="Mayuscula()" ondblclick="Mayusculas()">Mayusculas</button>
-    <p>Probando</p>
+    <input id="entrada" size="50" type="text">
+    <button id="enviar">Enviar</button>
+    <button id="emoji">Emoji</button>
+    <button id="saltoLinea">salto linea</button>
+    <button id="borrarUltimoCaracter"><-</button>
+    <button id="borrarPrimerCaracter">-></button>
+    <button id="borrarPalabra">CE</button>
+    <button id="reset">C</button>
+    <button id="espacio">Espacio</button>
+    <button id="mayusculas">Mayusculas</button>
+    <div id="teclado"></div>
 </body>
 </html>
