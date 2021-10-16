@@ -1,9 +1,23 @@
 body {
     background-color: black;
 }
+
 div {
     background-color: white;
 }
+
 p {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.mensaje {
+    width: 60px;
+}
+
+.emoji {
+    width: 100px;
+}
+
+.hora {
+    font-size: 11px;
 }
