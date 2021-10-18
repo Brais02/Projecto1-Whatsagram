@@ -94,6 +94,14 @@ window.onload = function () {
     }
 }
 
+//Cuando se le de a intro desde el input de texto se enviara el mensaje
+function Intro(evento) {
+    var x = evento.code;
+    if(x === "Enter") {
+        document.getElementById("enviar").click();
+    }
+}
+
 function SaltoLinea() {
     var entrada = Entrada();
     entrada += "<br>";
