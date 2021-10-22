@@ -1,5 +1,9 @@
+/*Usar rem para cambiar la letra que pilla la letra base de Body*/
+
 body {
     background-color: black;
+    margin: 0px;
+    font-size: 11px;
 }
 
 div {
@@ -7,9 +11,30 @@ div {
 }
 
 p {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Cinzel', serif;    
+    font-size: 1rem;
 }
 
+.tecla {
+    font-family: 'Cinzel', serif;    
+    font-size: 20px;
+    background-color: black;
+    color: white;
+}
+
+.tecla:hover {
+    background-color: red;
+}
+button {
+    font-family: 'Cinzel', serif;    
+    font-size: 20px;
+    background-color: green;
+    color: white;
+}
+
+button:hover {
+    background-color: blue;
+}
 .mensaje {
     width: 60px;
 }
@@ -20,4 +45,10 @@ p {
 
 .hora {
     font-size: 11px;
+}
+
+@media (max-width: 600px) {
+    body {
+        background-color: red;
+    }
 }
