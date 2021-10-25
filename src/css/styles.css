@@ -34,8 +34,6 @@ button:active {
         "textarea textarea textarea"
         "teclado teclado teclado"
         "teclado teclado teclado";
-    position: fixed;
-    margin: auto 0;
 }
 
 .hora {
@@ -45,10 +43,14 @@ button:active {
 
 @media (min-width: 601px) {
 
-    /*IDEA PARA LOS BORDES DE LA WEB PARA CENTRARLA EN EL VIEW PORT*/
     #caja {
-        grid-template-columns: 1fr 500px 1fr;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid RebeccaPurple;
     }
+
     #salida {
         grid-area: mensage;
         background-image: url("../imagenes/background-image-whatsapp.png");
