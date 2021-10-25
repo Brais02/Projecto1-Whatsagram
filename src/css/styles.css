@@ -1,54 +1,164 @@
-/*Usar rem para cambiar la letra que pilla la letra base de Body*/
-
 body {
-    background-color: black;
-    margin: 0px;
-    font-size: 11px;
-}
-
-div {
-    background-color: white;
-}
-
-p {
-    font-family: 'Cinzel', serif;    
-    font-size: 1rem;
-}
-
-.tecla {
-    font-family: 'Cinzel', serif;    
-    font-size: 20px;
-    background-color: black;
-    color: white;
-}
-
-.tecla:hover {
     background-color: red;
+    margin: 0px;
+    font-size: 16px;
+    overflow: hidden;
+
 }
+
 button {
-    font-family: 'Cinzel', serif;    
-    font-size: 20px;
-    background-color: green;
-    color: white;
+    background-color: white;
+    width: 9vw;
 }
 
 button:hover {
-    background-color: blue;
-}
-.mensaje {
-    width: 60px;
+    background-color: whitesmoke;
+    font-weight: bolder;
 }
 
-.emoji {
-    width: 100px;
+button:active {
+    background-color:aliceblue;
+}
+
+#caja {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "mensage mensage mensage"
+        "mensage mensage mensage"
+        "textarea textarea textarea"
+        "teclado teclado teclado"
+        "teclado teclado teclado";
+}
+
+#salida {
+    grid-area: mensage;
+    background-image: url("../imagenes/background-image-whatsapp.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 2px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: auto;
+}
+
+p {
+    font-size: 1rem;
 }
 
 .hora {
     font-size: 11px;
+    padding-left: inherit;
 }
 
-@media (max-width: 600px) {
-    body {
-        background-color: red;
-    }
+.fecha {
+    grid-area: header;
+    display: flex;
+    background-color: #E1F3FB;
+    align-self: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    padding: 1vw;
+}
+
+.mensaje {
+    grid-area: aside;
+    background-color: #DCF8C6;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: justify;
+    padding: 1vh;
+    margin: 1vh;
+    max-width: 98vw;
+}
+
+#textarea {
+    grid-area: textarea;
+    background-color: white;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#entrada {
+    width: 45vh;
+    height: 7vw;
+}
+
+#enviar {
+    width: 9vw;
+}
+
+#enviar:hover {
+    filter: invert(100%);
+}
+
+#emoji {
+    width: 9vw;
+}
+
+#teclado {
+    grid-area: teclado;
+    background-color: grey;
+    display: flex;
+    height: 25vh;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+    padding: 1vw;
+}
+
+#mayusculas {
+    order: 1;
+    width: 11vw;
+}
+
+#borrarUltimoCaracter {
+    order: 2;
+    width: 10vh;
+}
+
+#coma {
+    order: 4;
+}
+
+#espacio {
+    order: 5;
+    width: 40vw;
+    background-color: whitesmoke;
+}
+
+#espacio:hover {
+    background-color: gainsboro;
+}
+
+#espacio:active {
+    background-color: azure;
+}
+
+#punto {
+    order: 6;
+}
+
+#reset {
+    order: 3;
+}
+
+#borrarPalabra {
+    order: 7;
+}
+
+#borrarPrimerCaracter {
+    order: 8;
+}
+
+#saltoLinea {
+    order: 9;
+    width: 10vw;
 }
