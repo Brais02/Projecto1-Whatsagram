@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whatsagram 0.5</title>
+    <title>Whatsagram 0.6</title>
     <link rel="shortut icon" type="image/png" href="imagenes/icon.png" sizes="32x32">
 
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    
     <!-- A los estilos -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
@@ -16,17 +21,24 @@
 </head>
 
 <body>
-    <div id="salida"></div>
-    <input id="entrada" size="50" type="text" onkeypress="Intro(event)">
-    <button id="enviar">Enviar</button>
-    <button id="emoji">Emoji</button>
-    <button id="saltoLinea">salto linea</button>
-    <button id="borrarUltimoCaracter">←</button>
-    <button id="borrarPrimerCaracter">→</button>
-    <button id="borrarPalabra">CE</button>
-    <button id="reset">C</button>
-    <button id="espacio">Espacio</button>
-    <button id="mayusculas">Mayusculas</button>
-    <div id="teclado"></div>
+    <section id="caja">
+        <article id="salida"></article>
+        <article id="textarea">
+            <img id="emoji" src="imagenes/money.png">
+            <input id="entrada" type="text" onkeypress="Intro(event)">
+            <img id="enviar" src="imagenes/Send-Image.png">
+        </article>
+        <article id="teclado">
+            <button id="mayusculas">⬆</button>
+            <button id="borrarUltimoCaracter">←</button>
+            <button id="coma">,</button>
+            <button id="espacio"></button>
+            <button id="punto">.</button>
+            <button id="reset">C</button>
+            <button id="borrarPalabra">CE</button>
+            <button id="borrarPrimerCaracter">→</button>
+            <button id="saltoLinea">↲</button>
+        </article>
+    </section>
 </body>
 </html>
