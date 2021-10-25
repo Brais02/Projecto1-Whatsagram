@@ -92,6 +92,14 @@ window.onload = function () {
     document.getElementById("saltoLinea").onclick = function () {
         SaltoLinea();
     }
+    
+    document.getElementById("coma").onclick = function () {
+        Coma()
+    }
+
+    document.getElementById("punto").onclick = function () {
+        Punto()
+    }
 }
 
 //Cuando se le de a intro desde el input de texto se enviara el mensaje
@@ -100,6 +108,18 @@ function Intro(evento) {
     if(x === "Enter") {
         document.getElementById("enviar").click();
     }
+}
+
+function Coma() {
+    var entrada = Entrada();
+    entrada += ",";
+    document.getElementById("entrada").value = entrada;
+}
+
+function Punto() {
+    var entrada = Entrada();
+    entrada += ".";
+    document.getElementById("entrada").value = entrada;
 }
 
 function SaltoLinea() {
