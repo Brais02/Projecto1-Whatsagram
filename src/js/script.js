@@ -243,6 +243,7 @@ function Enviar(imagen) {
         el elemento con la informacion*/
         var nodo = document.createElement("p"); //Necesitamos crear un nuevo elemento para asegurarnos que no se sobrescriba con el mensaje
         nodo.innerHTML = "<b>" + enviarfecha + "</b>";
+        nodo.classList.add("fecha");
         salida.appendChild(nodo);
     }
 
@@ -251,10 +252,12 @@ function Enviar(imagen) {
         //En caso de que no se envie una imagen hara lo mismo que en el caso de que los emojis esten desactivados
         if (imagen != null) {
             p.innerHTML = entrada + " " + imagen + " " + hora;
+            p.classList.add("mensaje");
             salida.appendChild(p);
             Reset(); //Llamamos a Reset para que nos limpie el input
         } else {
             p.innerHTML = entrada + " " + hora;
+            p.classList.add("mensaje");
             salida.appendChild(p);
             Reset(); //Llamamos a Reset para que nos limpie el input
         }
@@ -263,6 +266,7 @@ function Enviar(imagen) {
         metemos los valores de entrada en el elemento y colgamos como hijo
         de la salida el elemento con los datos y entonce dejamos en vacio entrada*/
         p.innerHTML = entrada + " " + hora;
+        p.classList.add("mensaje");
         salida.appendChild(p);
         Reset(); //Llamamos a Reset para que nos limpie el input
     }
