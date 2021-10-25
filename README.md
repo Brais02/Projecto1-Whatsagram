@@ -33,24 +33,19 @@
 - [x] Al darle a Intro en la text area te envia el mensaje sin tener que clicar en Enviar.
 
 ## DIW (Diseño)
+- [x] Crear el diseño con grid de la web.
+- [x] El fondo de cada sección no distrae del texto.
+
 ### Messaging area
-- [ ] Crear el diseño con grid de la messaging area.
-- [ ] La fecha aparezca de manera distingible al resto de mensajes.
-- [ ] La hora del mensaje se diferencia del mensaje en si.
+- [x] La fecha aparezca de manera distingible al resto de mensajes.
+- [x] La hora del mensaje se diferencia del mensaje en si.
 - [ ] Los emojis tengan un tamaño adaptado a las letras.
-- [ ] Que las mayusculas sean distingibles del resto del texto.
-- [ ] Que los mensajes tengan todos un diseño uniforme y se puedan leer de manera clara.
-- [ ] Que el fondo permita ver de forma clara los mensajes.
+- [x] Que las mayusculas sean distingibles del resto del texto.
+- [ ] Los mensajes tienen todos un diseño uniforme y se puedan leer de manera clara.
 
 ### Text area
-- [ ] Crear el diseño con grid de la text area.
-- [ ] El texto tiene que ser legible.
-- [ ] El fondo no tiene que distraer del texto.
+- [x] El texto tiene que ser legible.
 
 ### Keyboard area
-- [ ] Crear el diseño con grid de la keyboard area.
 - [ ] Las teclas tienen que tener una forma uniforme.
-- [ ] Se tiene que ver de forma clara que realiza la tecla.
-- [ ] Los iconos o letras dentro de las teclas tienen que poderse ver de forma clara.
-- [ ] El fondo no puede distraer de las teclas.
-
+- [x] Los iconos o letras dentro de las teclas se pueden ver de forma clara.
