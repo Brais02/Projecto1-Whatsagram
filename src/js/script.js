@@ -6,8 +6,7 @@ var primeraVezFecha = true; //Indica si es la primera vez que se tiene que envia
 var hora; //Guarda la hora y minutos del mensaje que se enviara
 
 /*Variables referentes a Mayusculas*/
-var mayusculaSiempre = false; //Indica si se ha hecho doble click y tenemos mayusculas todo el rato
-var mayuscula = false; //Indica si se ha hecho un click y tenemos mayusculas la siguiente vez que escribamos
+var mayusculas = 0; 
 
 /*Variables referentes al Teclado*/
 var emojisActivado = false; //Comprueba si los emojis estan activados
@@ -35,29 +34,24 @@ window.onload = function () {
         /*Cuando no esten activados los emojis nos eliminara los emojis del teclado, 
         nos generara el teclado y nos activara el teclado*/
         if (emojisActivado == false) {
-            EliminarElemento("emoji");
+            EliminarElemento();
             GenerarTeclado();
             ActivarTeclado(); //Se vuelve a activar el teclado para que vuelva a estar pendiente de si se hace click
 
             /*Si los emojis estan activados nos eliminara
             las teclas del teclado y nos mostrara los emojis*/
         } else {
-            EliminarElemento("tecla");
+            EliminarElemento();
             GenerarEmoji();
             ActivarEmoji();
         }
     }
 
     document.getElementById("mayusculas").onclick = function () {
-        if (mayusculaSiempre == true) {
-            mayusculaSiempre = false;
-        } else {
-            mayuscula = true;
+        mayusculas++;
+        if (mayusculas == 3) {
+            mayusculas =0;
         }
-    }
-
-    document.getElementById("mayusculas").ondblclick = function () {
-        mayusculaSiempre = true;
     }
 
     document.getElementById("reset").onclick = function () {
@@ -105,7 +99,7 @@ window.onload = function () {
 //Cuando se le de a intro desde el input de texto se enviara el mensaje
 function Intro(evento) {
     var x = evento.code;
-    if(x === "Enter") {
+    if (x === "Enter") {
         document.getElementById("enviar").click();
     }
 }
@@ -161,17 +155,17 @@ function ActivarEmoji() {
     for (let index = 0; index < tecladoEmoji.length; index++) {
         tecladoEmoji[index].onclick = function () {
             var imagenEmoji = this.outerHTML; //Coge el valor que tiene escrito en la etiqueta la variable
-            imagenEmoji = imagenEmoji.replace("emoji", "mensaje") //Remplaza el valor de la clase para que no haya problemas con la array tecladoEmoji
+            imagenEmoji = imagenEmoji.replace("emoji", "imagen") //Remplaza el valor de la clase para que no haya problemas con la array tecladoEmoji
             Enviar(imagenEmoji); //Nos envia la imagen para enviarla con el texto si contiene alguno
         }
     }
 }
 
 function Letras(letra) {
-    if (mayuscula == true) {
+    if (mayusculas == 1) {
         document.getElementById("entrada").value += letra.toUpperCase();
-        mayuscula = false;
-    } else if (mayusculaSiempre == true) {
+        mayusculas = 0;
+    } else if (mayusculas == 2) {
         document.getElementById("entrada").value += letra.toUpperCase();
     } else {
         document.getElementById("entrada").value += letra.toLowerCase();
@@ -190,8 +184,8 @@ function ActivarTeclado() {
 }
 
 /*Nos permite eliminar los elementos que esten dentro de nuestro teclado*/
-function EliminarElemento(hijo) {
-    var elementoHijo = document.getElementsByClassName(hijo).length; //Nos coge el numero de elementos que tienen el mismo nombre de una clase
+function EliminarElemento() {
+    var elementoHijo = document.getElementById("teclado").childElementCount; //Nos coge el numero de elementos que son hijos teclado
     var padre = document.getElementById("teclado"); //Nos coge el elemento padre que sera la seccion del teclado
     for (let index = 0; index < elementoHijo; index++) {
         padre.removeChild(padre.childNodes[0]); //Eliminaremos el primer elemento hijo (el 0) del padre hasta que ya no queden mas hijos
@@ -210,6 +204,7 @@ function GenerarTeclado() {
         button.classList.add("tecla"); //Añadimos dentro de cada boton la clase tecla
         salidaTeclado.appendChild(button); //Hacemos que el boton sea un hijo de nuestra zona teclado
     }
+
     teclado = document.getElementsByClassName("tecla"); //Nos define que todo elemento que tenga la clase tecla se guarda en teclado 
 }
 
@@ -225,6 +220,7 @@ function GenerarEmoji() {
         imagen.classList.add("emoji"); //Añadimos dentro de cada emoji la clase emoji
         salidaTeclado.appendChild(imagen); //Hacemos que la imagen sea un hijo de nuestra zona teclado
     }
+
     tecladoEmoji = document.getElementsByClassName("emoji"); //Nos define que todo elemento que tenga la clase emoji se guarda en tecladoEmoji 
 }
 
