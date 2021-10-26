@@ -1,6 +1,7 @@
 body {
-    background-image: url("../imagenes/Background-Webpage-Image.jpg");
+    background-image: url("../imagenes/Background-Webpage-Image.jpeg");
     background-size: cover;
+    background-position: center;
     margin: 0px;
     font-size: 16px;
     overflow: hidden;
@@ -17,14 +18,12 @@ button {
 
 button:hover {
     background-color: whitesmoke;
-    filter: invert(100%);
     font-weight: bolder;
 }
 
 button:active {
     background-color: aliceblue;
 }
-
 
 #caja {
     display: grid;
@@ -42,191 +41,148 @@ button:active {
     padding-left: inherit;
 }
 
-@media (min-width: 601px) {
+#salida {
+    grid-area: mensage;
+    background-image: url("../imagenes/background-image-whatsapp.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
+    padding: 2px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: auto;
+}
+
+.fecha {
+    background-color: #E1F3FB;
+    align-self: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    padding: 1vw;
+    border-radius: 1vh;
+}
+
+.mensaje {
+    grid-area: aside;
+    background-color: #DCF8C6;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: justify;
+    padding: 1vh;
+    margin: 1vh;
+    max-width: 98vw;
+    border-radius: 5vh;
+}
+
+.mensaje:hover {
+    height: 3vw;
+    filter: opacity(90%);
+}
+
+#textarea {
+    grid-area: textarea;
+    background-color: white;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#entrada {
+    width: 100%;
+    height: 75%;
+}
+
+#enviar {
+    width: 5vh;
+}
+
+#enviar:hover {
+    filter: invert(100%);
+}
+
+#emoji {
+    width: 5vh;
+}
+
+.emoji {
+    height: 10vh;
+}
+
+.imagen {
+    height: 5vh;
+}
+
+#teclado {
+    grid-area: teclado;
+    background-color: grey;
+    display: flex;
+    height: 24vh;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1vw;
+}
+
+#mayusculas {
+    order: 1;
+    width: 11vw;
+}
+
+#borrarUltimoCaracter {
+    order: 2;
+    width: 10vh;
+}
+
+#coma {
+    order: 4;
+}
+
+#espacio {
+    order: 5;
+    width: 40vw;
+    background-color: whitesmoke;
+}
+
+#espacio:hover {
+    background-color: gainsboro;
+}
+
+#espacio:active {
+    background-color: azure;
+}
+
+#punto {
+    order: 6;
+}
+
+#reset {
+    order: 3;
+}
+
+#borrarPalabra {
+    order: 7;
+}
+
+#borrarPrimerCaracter {
+    order: 8;
+}
+
+#saltoLinea {
+    order: 9;
+    width: 10vw;
+}
+
+@media (min-width: 601px) {
     #caja {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         border: 5px solid RebeccaPurple;
-    }
-
-    #salida {
-        grid-area: mensage;
-        background-image: url("../imagenes/background-image-whatsapp.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        padding: 2px;
-        height: 70vh;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        overflow: auto;
-    }
-
-    .fecha {
-        background-color: #E1F3FB;
-        align-self: center;
-        justify-content: center;
-        font-family: 'Cinzel', serif;
-        padding: 1vw;
-    }
-
-    .mensaje {
-        grid-area: aside;
-        background-color: #DCF8C6;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        text-align: justify;
-        padding: 1vh;
-        margin: 1vh;
-        max-width: 98vw;
-    }
-
-    #textarea {
-        grid-area: textarea;
-        background-color: white;
-        height: 5vh;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    #teclado {
-        grid-area: teclado;
-        background-color: grey;
-        display: flex;
-        height: 24vh;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        flex-direction: row;
-        padding: 1vw;
-    }
-}
-
-@media (max-width: 600px) {
-
-    #salida {
-        grid-area: mensage;
-        background-image: url("../imagenes/background-image-whatsapp.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        padding: 2px;
-        height: 70vh;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        overflow: auto;
-    }
-
-    .fecha {
-        background-color: #E1F3FB;
-        align-self: center;
-        justify-content: center;
-        font-family: 'Cinzel', serif;
-        padding: 1vw;
-    }
-
-    .mensaje {
-        background-color: #DCF8C6;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        text-align: justify;
-        padding: 1vh;
-        margin: 1vh;
-        max-width: 85vw;
-    }
-
-    #textarea {
-        grid-area: textarea;
-        background-color: white;
-        height: 5vh;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    #entrada {
-        width: 45vh;
-        height: 7vw;
-    }
-
-    #enviar {
-        width: 9vw;
-    }
-
-    #enviar:hover {
-        filter: invert(100%);
-    }
-
-    #emoji {
-        width: 9vw;
-    }
-
-    #teclado {
-        grid-area: teclado;
-        background-color: grey;
-        display: flex;
-        height: 24vh;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        flex-direction: row;
-        padding: 1vw;
-    }
-
-    #mayusculas {
-        order: 1;
-        width: 11vw;
-    }
-
-    #borrarUltimoCaracter {
-        order: 2;
-        width: 10vh;
-    }
-
-    #coma {
-        order: 4;
-    }
-
-    #espacio {
-        order: 5;
-        width: 40vw;
-        background-color: whitesmoke;
-    }
-
-    #espacio:hover {
-        background-color: gainsboro;
-    }
-
-    #espacio:active {
-        background-color: azure;
-    }
-
-    #punto {
-        order: 6;
-    }
-
-    #reset {
-        order: 3;
-    }
-
-    #borrarPalabra {
-        order: 7;
-    }
-
-    #borrarPrimerCaracter {
-        order: 8;
-    }
-
-    #saltoLinea {
-        order: 9;
-        width: 10vw;
     }
 }
