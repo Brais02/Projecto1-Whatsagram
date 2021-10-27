@@ -50,7 +50,7 @@ window.onload = function () {
     document.getElementById("mayusculas").onclick = function () {
         mayusculas++;
         if (mayusculas == 3) {
-            mayusculas =0;
+            mayusculas = 0;
         }
     }
 
@@ -149,18 +149,6 @@ function Reset() {
     document.getElementById("entrada").value = "";
 }
 
-/*Nos activara el teclado para que cuando hagamos click se envie*/
-function ActivarEmoji() {
-    /*En caso de que le hagamos click a alguna tecla se nos activara la funcion*/
-    for (let index = 0; index < tecladoEmoji.length; index++) {
-        tecladoEmoji[index].onclick = function () {
-            var imagenEmoji = this.outerHTML; //Coge el valor que tiene escrito en la etiqueta la variable
-            imagenEmoji = imagenEmoji.replace("emoji", "imagen") //Remplaza el valor de la clase para que no haya problemas con la array tecladoEmoji
-            Enviar(imagenEmoji); //Nos envia la imagen para enviarla con el texto si contiene alguno
-        }
-    }
-}
-
 function Letras(letra) {
     if (mayusculas == 1) {
         document.getElementById("entrada").value += letra.toUpperCase();
@@ -181,6 +169,18 @@ function ActivarTeclado() {
             Letras(tecla); //Nos envia ese valor a que se compruebe si va en mayusculas
         }
     }
+}
+
+/*Nos activara el teclado para que cuando hagamos click se envie*/
+function ActivarEmoji() {
+  /*En caso de que le hagamos click a alguna tecla se nos activara la funcion*/
+  for (let index = 0; index < tecladoEmoji.length; index++) {
+      tecladoEmoji[index].onclick = function () {
+          var imagenEmoji = this.outerHTML; //Coge el valor que tiene escrito en la etiqueta la variable
+          imagenEmoji = imagenEmoji.replace("emoji", "imagen") //Remplaza el valor de la clase para que no haya problemas con la array tecladoEmoji
+          Enviar(imagenEmoji); //Nos envia la imagen para enviarla con el texto si contiene alguno
+      }
+  }
 }
 
 /*Nos permite eliminar los elementos que esten dentro de nuestro teclado*/
@@ -266,7 +266,8 @@ function Enviar(imagen) {
         salida.appendChild(p);
         Reset(); //Llamamos a Reset para que nos limpie el input
     }
-}
+    salida.lastChild.scrollIntoView(false);
+  }
 
 /*Devolvera la fecha actual o null*/
 function Fecha() {
