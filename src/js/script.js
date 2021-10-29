@@ -6,7 +6,7 @@ var primeraVezFecha = true; //Indica si es la primera vez que se tiene que envia
 var hora; //Guarda la hora y minutos del mensaje que se enviara
 
 /*Variables referentes a Mayusculas*/
-var mayusculas = 0; 
+var mayusculas = 0;
 
 /*Variables referentes al Teclado*/
 var emojisActivado = false; //Comprueba si los emojis estan activados
@@ -18,6 +18,8 @@ window.onload = function () {
     /*Nada más carge la web nos generara el Teclado y nos lo activara*/
     GenerarTeclado();
     ActivarTeclado();
+    TeclasEspeciales();
+    ActivarTeclasEspeciales();
 
     /*Cuando hagan click en emoji nos comprobaran el estado
     de emojisActivado*/
@@ -37,6 +39,8 @@ window.onload = function () {
             EliminarElemento();
             GenerarTeclado();
             ActivarTeclado(); //Se vuelve a activar el teclado para que vuelva a estar pendiente de si se hace click
+            TeclasEspeciales();
+            ActivarTeclasEspeciales();
 
             /*Si los emojis estan activados nos eliminara
             las teclas del teclado y nos mostrara los emojis*/
@@ -46,6 +50,27 @@ window.onload = function () {
             ActivarEmoji();
         }
     }
+
+
+    document.getElementById("enviar").onclick = function () {
+        var entrada = Entrada();
+
+        //En caso de que se quiera enviar el texto vacio o con espacio no se enviara
+        if (entrada.trim() != "") {
+            Enviar();
+        }
+    }
+}
+
+//Cuando se le de a intro desde el input de texto se enviara el mensaje
+function Intro(evento) {
+    var x = evento.code;
+    if (x === "Enter") {
+        document.getElementById("enviar").click();
+    }
+}
+
+function ActivarTeclasEspeciales() {
 
     document.getElementById("mayusculas").onclick = function () {
         mayusculas++;
@@ -60,15 +85,6 @@ window.onload = function () {
 
     document.getElementById("espacio").onclick = function () {
         document.getElementById("entrada").value += " ";
-    }
-
-    document.getElementById("enviar").onclick = function () {
-        var entrada = Entrada();
-
-        //En caso de que se quiera enviar el texto vacio o con espacio no se enviara
-        if (entrada.trim() != "") {
-            Enviar();
-        }
     }
 
     document.getElementById("borrarUltimoCaracter").onclick = function () {
@@ -86,7 +102,7 @@ window.onload = function () {
     document.getElementById("saltoLinea").onclick = function () {
         SaltoLinea();
     }
-    
+
     document.getElementById("coma").onclick = function () {
         Coma()
     }
@@ -96,11 +112,50 @@ window.onload = function () {
     }
 }
 
-//Cuando se le de a intro desde el input de texto se enviara el mensaje
-function Intro(evento) {
-    var x = evento.code;
-    if (x === "Enter") {
-        document.getElementById("enviar").click();
+function TeclasEspeciales() {
+    var especiales = ["mayusculas", "borrarUltimoCaracter", "coma", "espacio", "punto", "reset",
+        "borrarPalabra", "borrarPrimerCaracter", "saltoLinea"
+    ];
+
+    var salidaTeclado = document.getElementById("teclado"); //Cogemos el punto de la zona teclado
+    for (let index = 0; index < especiales.length; index++) {
+        var boton = document.createElement("button");
+
+        boton.setAttribute("id", especiales[index]);
+        switch (index) {
+            case 0:
+                boton.innerHTML = "⬆";
+                break;
+            case 1:
+                boton.innerHTML = "←";
+                break;
+            case 2:
+                boton.innerHTML = ",";
+                break;
+            case 3:
+                boton.innerHTML = "";
+                break;
+            case 4:
+                boton.innerHTML = ".";
+                break;
+            case 5:
+                boton.innerHTML = "C";
+                break;
+            case 6:
+                boton.innerHTML = "CE";
+                break;
+            case 7:
+                boton.innerHTML = "→";
+                break;
+            case 8:
+                boton.innerHTML = "↲";
+                break;
+            default:
+                boton.innerHTML = "Tecla";
+                break;
+        }
+
+        salidaTeclado.appendChild(boton);
     }
 }
 
@@ -173,14 +228,14 @@ function ActivarTeclado() {
 
 /*Nos activara el teclado para que cuando hagamos click se envie*/
 function ActivarEmoji() {
-  /*En caso de que le hagamos click a alguna tecla se nos activara la funcion*/
-  for (let index = 0; index < tecladoEmoji.length; index++) {
-      tecladoEmoji[index].onclick = function () {
-          var imagenEmoji = this.outerHTML; //Coge el valor que tiene escrito en la etiqueta la variable
-          imagenEmoji = imagenEmoji.replace("emoji", "imagen") //Remplaza el valor de la clase para que no haya problemas con la array tecladoEmoji
-          Enviar(imagenEmoji); //Nos envia la imagen para enviarla con el texto si contiene alguno
-      }
-  }
+    /*En caso de que le hagamos click a alguna tecla se nos activara la funcion*/
+    for (let index = 0; index < tecladoEmoji.length; index++) {
+        tecladoEmoji[index].onclick = function () {
+            var imagenEmoji = this.outerHTML; //Coge el valor que tiene escrito en la etiqueta la variable
+            imagenEmoji = imagenEmoji.replace("emoji", "emojiEnviado") //Remplaza el valor de la clase para que no haya problemas con la array tecladoEmoji
+            Enviar(imagenEmoji); //Nos envia la imagen para enviarla con el texto si contiene alguno
+        }
+    }
 }
 
 /*Nos permite eliminar los elementos que esten dentro de nuestro teclado*/
@@ -196,7 +251,7 @@ function EliminarElemento() {
 function GenerarTeclado() {
 
     //La array de todas las teclas nos permite definir cuantas teclas se van a generar
-    var abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var abecedario = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ", "z", "x", "c", "v", "b", "n", "m"];
     var salidaTeclado = document.getElementById("teclado"); //Cogemos el punto de la zona teclado
     for (let index = 0; index < abecedario.length; index++) {
         var button = document.createElement("button"); //Creamos el elementos boton para cada tecla
@@ -267,7 +322,7 @@ function Enviar(imagen) {
         Reset(); //Llamamos a Reset para que nos limpie el input
     }
     salida.lastChild.scrollIntoView(false);
-  }
+}
 
 /*Devolvera la fecha actual o null*/
 function Fecha() {
