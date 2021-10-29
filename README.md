@@ -39,13 +39,13 @@
 ### Messaging area
 - [x] La fecha aparezca de manera distingible al resto de mensajes.
 - [x] La hora del mensaje se diferencia del mensaje en si.
-- [ ] Los emojis tengan un tamaño adaptado a las letras.
+- [x] Los emojis tengan un tamaño adaptado a las letras.
 - [x] Que las mayusculas sean distingibles del resto del texto.
-- [ ] Los mensajes tienen todos un diseño uniforme y se puedan leer de manera clara.
+- [x] Los mensajes tienen todos un diseño uniforme y se puedan leer de manera clara.
 
 ### Text area
 - [x] El texto tiene que ser legible.
 
 ### Keyboard area
-- [ ] Las teclas tienen que tener una forma uniforme.
+- [x] Las teclas tienen que tener una forma uniforme.
 - [x] Los iconos o letras dentro de las teclas se pueden ver de forma clara.
