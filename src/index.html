@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whatsagram 0.6</title>
+    <title>Whatsagram 0.8</title>
     <link rel="shortut icon" type="image/png" href="imagenes/icon.png" sizes="32x32">
 
     <!-- Google Font -->
@@ -19,26 +19,24 @@
     <!-- El JavaScript -->
     <script src="js/script.js"></script>
 </head>
-
+    
 <body>
-    <section id="caja">
-        <article id="salida"></article>
-        <article id="textarea">
-            <img id="emoji" src="imagenes/money.png">
-            <input id="entrada" type="text" onkeypress="Intro(event)">
-            <img id="enviar" src="imagenes/Send-Image.png">
-        </article>
-        <article id="teclado">
-            <button id="mayusculas">⬆</button>
-            <button id="borrarUltimoCaracter">←</button>
-            <button id="coma">,</button>
-            <button id="espacio"></button>
-            <button id="punto">.</button>
-            <button id="reset">C</button>
-            <button id="borrarPalabra">CE</button>
-            <button id="borrarPrimerCaracter">→</button>
-            <button id="saltoLinea">↲</button>
-        </article>
-    </section>
+    <div id="bordes">
+        <section id="uno"></section>
+        <section id="caja">
+            <article id="cabecera">
+                <img src="imagenes/icon.png" id="iconoUsuario">
+                <h1 id="nombreUsuario">Antonio</h1>
+            </article>
+            <article id="salida"></article>
+            <article id="textarea">
+                <img id="emoji" src="imagenes/money.png">
+                <input id="entrada" type="text" onkeypress="Intro(event)">
+                <img id="enviar" src="imagenes/Send-Image.png">
+            </article>
+            <article id="teclado"></article>
+        </section>
+    </div>
 </body>
+
 </html>
