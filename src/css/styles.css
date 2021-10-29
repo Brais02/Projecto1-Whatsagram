@@ -29,6 +29,7 @@ button:active {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
+        "cabecera cabecera cabecera"
         "mensage mensage mensage"
         "mensage mensage mensage"
         "textarea textarea textarea"
@@ -41,6 +42,23 @@ button:active {
     padding-left: inherit;
 }
 
+#cabecera {
+    grid-area: cabecera;
+    background-color: #075F56;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#iconoUsuario {
+    height: 5vh;
+}
+
+#nombreUsuario {
+    color: white;
+}
+
 #salida {
     grid-area: mensage;
     background-image: url("../imagenes/background-image-whatsapp.png");
@@ -49,7 +67,7 @@ button:active {
     background-size: cover;
 
     padding: 2px;
-    height: 70vh;
+    height: 62vh;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -66,7 +84,6 @@ button:active {
 }
 
 .mensaje {
-    grid-area: aside;
     background-color: #DCF8C6;
     display: flex;
     flex-direction: row;
@@ -113,15 +130,15 @@ button:active {
     height: 10vh;
 }
 
-.imagen {
-    height: 5vh;
+.emojiEnviado {
+    height: 4vh;
 }
 
 #teclado {
     grid-area: teclado;
     background-color: grey;
     display: flex;
-    height: 24vh;
+    height: 22vh;
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: row;
@@ -130,12 +147,16 @@ button:active {
 
 #mayusculas {
     order: 1;
-    width: 11vw;
+    width: 13vw;
 }
 
 #borrarUltimoCaracter {
     order: 2;
-    width: 10vh;
+    width: 12vh;
+}
+
+#reset {
+    order: 3;
 }
 
 #coma {
@@ -160,10 +181,6 @@ button:active {
     order: 6;
 }
 
-#reset {
-    order: 3;
-}
-
 #borrarPalabra {
     order: 7;
 }
@@ -174,20 +191,68 @@ button:active {
 
 #saltoLinea {
     order: 9;
-    width: 10vw;
+    width: 13vw;
 }
 
 @media (min-width: 601px) {
-    #caja {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: 5px solid RebeccaPurple;
+    #reset {
+        order: 1;
+        width: 7vw;
     }
-    
+
+    #borrarPalabra {
+        order: 2;
+        width: 7vw;
+    }
+
+    #mayusculas {
+        order: 3;
+        width: 8vw;
+    }
+    #saltoLinea {
+        width: 8vw;
+    }
+
+    button{
+        width: 6vw;
+    }
+
+    #borrarPrimerCaracter {
+        order: 7;
+        width: 8vw;
+    }
+
+    #borrarUltimoCaracter {
+        order: 4;
+        width: 8vw;
+    }
+
+    #espacio {
+        width: 20vw;
+    }
+
+    #bordes {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    #uno {
+        order: 1;
+    }
+
+    #caja {
+        order: 2;
+    }
+
     #entrada {
-        width: 100%;
-        height: 55%;
+        height: 70%;
+    }
+
+    .emojiEnviado {
+        height: 3vh;
+    }
+
+    #salida {
+        height: 64vh;
     }
 }
