@@ -1,6 +1,7 @@
 # TODO Whatsagram 
 ## DWEC (JavaScript)
 - [x] El documento de JavaScript esta en un documento aparte .js
+- [x] El documento de CSS esta en un documento aparte .css
 
 ### Funciones basicas
 - [x] Enviar la fecha (dia, mes, año).
@@ -8,9 +9,9 @@
 - [x] Comprobar que la hora se envie con dos caracteres.
 - [x] Que las teclas envien la letra que representan.
 - [x] Que el boton de enviar envie el mensaje a la area de mensajeria
-- [x] Al clicar en GIF se muestren los emojis.
+- [x] Al clicar sobre el emoji se muestren los emojis.
 - [x] Al clicar sobre un emoji que se envie un mensaje con ese emoji
-- [ ] Al clicar sobre GIF que cambie el icono de GIF por un teclado.
+- [x] Al clicar sobre emoji que cambie el icono de GIF por un teclado.
 
 ### Teclas Especiales
 - [x] Al pulsar C que borre el texto en la text area.
@@ -32,6 +33,7 @@
 - [x] El mensaje que se envie con el emoji recoja el mensaje en messaging area.
 - [x] Al darle a Intro en la text area te envia el mensaje sin tener que clicar en Enviar.
 
+
 ## DIW (Diseño)
 - [x] Crear el diseño con grid de la web.
 - [x] El fondo de cada sección no distrae del texto.
@@ -42,10 +44,15 @@
 - [x] Los emojis tengan un tamaño adaptado a las letras.
 - [x] Que las mayusculas sean distingibles del resto del texto.
 - [x] Los mensajes tienen todos un diseño uniforme y se puedan leer de manera clara.
+- [x] Baja segun van llegando los iconos. 
 
 ### Text area
 - [x] El texto tiene que ser legible.
 
 ### Keyboard area
 - [x] Las teclas tienen que tener una forma uniforme.
-- [x] Los iconos o letras dentro de las teclas se pueden ver de forma clara.
+- [x] Los iconos o letras dentro de las teclas se pueden ver de forma clara
+
+### Extras DWEC
+- [x] El area de la cabecera.
+- [x] Que nos permita bajar en caso de que tengamos muchos emojis.
