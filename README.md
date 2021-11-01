@@ -1,5 +1,5 @@
 # TODO Whatsagram 
--[x] El ejercicio esta subido a netlify.
+- [x] El ejercicio esta subido a netlify.
 
 ## DWEC (JavaScript)
 - [x] El documento de JavaScript esta en un documento aparte .js
