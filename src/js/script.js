@@ -12,20 +12,18 @@ var mayusculas = 0;
 var emojisActivado = false; //Comprueba si los emojis estan activados
 var tecladoEmoji; //Guarda una array de todas las imagenes que tengan la clase emoji
 var teclado; //Guarda una array de todas las teclas que tengan la clase tecla
-
+var iconoEmojiRandom;
 
 window.onload = function () {
-    /*Nada más carge la web nos generara el Teclado y nos lo activara*/
+    /**Nada más carge la web nos generara el Teclado y nos lo activara*/
     GenerarTeclado();
     ActivarTeclado();
     TeclasEspeciales();
     ActivarTeclasEspeciales();
 
-    /*Cuando hagan click en emoji nos comprobaran el estado
-    de emojisActivado*/
-    document.getElementById("emoji").onclick = function () {
+    document.getElementById("iconoEmoji").onclick = function () {
 
-        /*Con esto consegimos activar y desactivar los emojis
+        /**Con esto consegimos activar y desactivar los emojis
         cuando hacemos click*/
         if (emojisActivado == false) {
             emojisActivado = true;
@@ -33,9 +31,13 @@ window.onload = function () {
             emojisActivado = false;
         }
 
-        /*Cuando no esten activados los emojis nos eliminara los emojis del teclado, 
+        //Con esto tenemos el elemento del icono del emoji guardado
+        var iconoEmoji = document.getElementById("iconoEmoji");
+
+        /**Cuando no esten activados los emojis nos eliminara los emojis del teclado, 
         nos generara el teclado y nos activara el teclado*/
         if (emojisActivado == false) {
+            iconoEmoji.src = iconoEmojiRandom;
             EliminarElemento();
             GenerarTeclado();
             ActivarTeclado(); //Se vuelve a activar el teclado para que vuelva a estar pendiente de si se hace click
@@ -45,6 +47,7 @@ window.onload = function () {
             /*Si los emojis estan activados nos eliminara
             las teclas del teclado y nos mostrara los emojis*/
         } else {
+            iconoEmoji.src = "imagenes/teclado.png";
             EliminarElemento();
             GenerarEmoji();
             ActivarEmoji();
@@ -62,54 +65,50 @@ window.onload = function () {
     }
 }
 
+/** Devuelve el valor que contenga entrada */
+function Entrada() {
+    return document.getElementById("entrada").value;
+}
+
 //Cuando se le de a intro desde el input de texto se enviara el mensaje
 function Intro(evento) {
-    var x = evento.code;
+    var x = evento.code; //Nos guarda el codigo de la tecla a la que hemos pulsado
     if (x === "Enter") {
         document.getElementById("enviar").click();
     }
 }
 
-function ActivarTeclasEspeciales() {
+//Nos permite generar los botones de letras de la zona de teclado y que tengan una clase llamada teclado
+function GenerarTeclado() {
 
-    document.getElementById("mayusculas").onclick = function () {
-        mayusculas++;
-        if (mayusculas == 3) {
-            mayusculas = 0;
-        }
+    //La array de todas las teclas nos permite definir cuantas teclas se van a generar
+    var abecedario = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ", "z", "x", "c", "v", "b", "n", "m"];
+    var salidaTeclado = document.getElementById("teclado"); //Cogemos el punto de la zona teclado
+    for (let index = 0; index < abecedario.length; index++) {
+        var button = document.createElement("button"); //Creamos el elementos boton para cada tecla
+        button.innerHTML = abecedario[index]; //Insertamos en cada boton una letra diferente de nuestro array abecedario
+        button.classList.add("tecla"); //Añadimos dentro de cada boton la clase tecla
+        salidaTeclado.appendChild(button); //Hacemos que el boton sea un hijo de nuestra zona teclado
     }
 
-    document.getElementById("reset").onclick = function () {
-        Reset();
+    teclado = document.getElementsByClassName("tecla"); //Nos define que todo elemento que tenga la clase tecla se guarda en teclado 
+}
+
+//Nos permite generar los emojis en la zona de teclado
+function GenerarEmoji() {
+
+    //La array de todas las imagenes que nos permite definir cuantas imagenes se crearan
+    var emoji = ["imagenes/sonrisa.png", "imagenes/money.png", "imagenes/zipper.png"];
+    var salidaTeclado = document.getElementById("teclado"); //Cogemos el punto de la zona teclado
+    for (let index = 0; index < emoji.length; index++) {
+        var imagen = document.createElement("img"); //Crearemos el elemento imagen para cada emoji
+        imagen.src = emoji[index]; //Meteremos dentro de cada imagen la referencia al emoji
+        imagen.classList.add("emoji"); //Añadimos dentro de cada emoji la clase emoji
+        salidaTeclado.appendChild(imagen); //Hacemos que la imagen sea un hijo de nuestra zona teclado
     }
 
-    document.getElementById("espacio").onclick = function () {
-        document.getElementById("entrada").value += " ";
-    }
-
-    document.getElementById("borrarUltimoCaracter").onclick = function () {
-        BorrarUltimoCaracter();
-    }
-
-    document.getElementById("borrarPrimerCaracter").onclick = function () {
-        BorrarPrimerCaracter();
-    }
-
-    document.getElementById("borrarPalabra").onclick = function () {
-        BorrarUltimaPalabra();
-    }
-
-    document.getElementById("saltoLinea").onclick = function () {
-        SaltoLinea();
-    }
-
-    document.getElementById("coma").onclick = function () {
-        Coma()
-    }
-
-    document.getElementById("punto").onclick = function () {
-        Punto()
-    }
+    iconoEmojiRandom = emoji[Math.floor(Math.random() * emoji.length)];
+    tecladoEmoji = document.getElementsByClassName("emoji"); //Nos define que todo elemento que tenga la clase emoji se guarda en tecladoEmoji 
 }
 
 function TeclasEspeciales() {
@@ -159,61 +158,6 @@ function TeclasEspeciales() {
     }
 }
 
-function Coma() {
-    var entrada = Entrada();
-    entrada += ",";
-    document.getElementById("entrada").value = entrada;
-}
-
-function Punto() {
-    var entrada = Entrada();
-    entrada += ".";
-    document.getElementById("entrada").value = entrada;
-}
-
-function SaltoLinea() {
-    var entrada = Entrada();
-    entrada += "<br>";
-    document.getElementById("entrada").value = entrada;
-}
-
-function Entrada() {
-    return document.getElementById("entrada").value;
-}
-
-function BorrarUltimaPalabra() {
-    var entrada = Entrada();
-    var posicionEspacio = entrada.trim().lastIndexOf(" "); //Elimina los espacios de los lados del texto y devuelve la posicion del ultimo espacio
-    entrada = entrada.substring(0, posicionEspacio); //Coge todos los caracteres desde el primero (0) hasta el ultimo espacio eliminando de facto la ultima palabra
-    document.getElementById("entrada").value = entrada;
-}
-
-function BorrarUltimoCaracter() {
-    var entrada = Entrada();
-    entrada = entrada.slice(0, -1); //Coge desde el primer caracter (0) hasta el penultimo caracter (-1) eliminando de facto el ultimo caracter
-    document.getElementById("entrada").value = entrada;
-}
-
-function BorrarPrimerCaracter() {
-    var entrada = Entrada();
-    entrada = entrada.substring(1); //Coge todos los caracteres del texto empezando por el primero, eliminando de facto el caracter inicial
-    document.getElementById("entrada").value = entrada;
-}
-
-function Reset() {
-    document.getElementById("entrada").value = "";
-}
-
-function Letras(letra) {
-    if (mayusculas == 1) {
-        document.getElementById("entrada").value += letra.toUpperCase();
-        mayusculas = 0;
-    } else if (mayusculas == 2) {
-        document.getElementById("entrada").value += letra.toUpperCase();
-    } else {
-        document.getElementById("entrada").value += letra.toLowerCase();
-    }
-}
 
 /*Nos activara el teclado para que cuando hagamos click se envie*/
 function ActivarTeclado() {
@@ -226,7 +170,7 @@ function ActivarTeclado() {
     }
 }
 
-/*Nos activara el teclado para que cuando hagamos click se envie*/
+/*Activara el teclado para que cuando hagamos click se envie*/
 function ActivarEmoji() {
     /*En caso de que le hagamos click a alguna tecla se nos activara la funcion*/
     for (let index = 0; index < tecladoEmoji.length; index++) {
@@ -235,6 +179,77 @@ function ActivarEmoji() {
             imagenEmoji = imagenEmoji.replace("emoji", "emojiEnviado") //Remplaza el valor de la clase para que no haya problemas con la array tecladoEmoji
             Enviar(imagenEmoji); //Nos envia la imagen para enviarla con el texto si contiene alguno
         }
+    }
+}
+
+/** Activara cada una de las teclas especiales cuando hagamos click sobre ellas*/
+function ActivarTeclasEspeciales() {
+
+    document.getElementById("mayusculas").onclick = function () {
+        mayusculas++;
+        if (mayusculas == 3) {
+            mayusculas = 0;
+        }
+    }
+
+    document.getElementById("reset").onclick = function () {
+        document.getElementById("entrada").value = "";
+    }
+
+    document.getElementById("espacio").onclick = function () {
+        document.getElementById("entrada").value += " ";
+    }
+
+    document.getElementById("borrarUltimoCaracter").onclick = function () {
+        var entrada = Entrada();
+        entrada = entrada.slice(0, -1); //Coge desde el primer caracter (0) hasta el penultimo caracter (-1) eliminando de facto el ultimo caracter
+        document.getElementById("entrada").value = entrada;
+    }
+
+    document.getElementById("borrarPrimerCaracter").onclick = function () {
+        var entrada = Entrada();
+        entrada = entrada.substring(1); //Coge todos los caracteres del texto empezando por el primero, eliminando de facto el caracter inicial
+        document.getElementById("entrada").value = entrada;
+    }
+
+    document.getElementById("borrarPalabra").onclick = function () {
+        var entrada = Entrada();
+        var posicionEspacio = entrada.trim().lastIndexOf(" "); //Elimina los espacios de los lados del texto y devuelve la posicion del ultimo espacio
+        entrada = entrada.substring(0, posicionEspacio); //Coge todos los caracteres desde el primero (0) hasta el ultimo espacio eliminando de facto la ultima palabra
+        document.getElementById("entrada").value = entrada;
+    }
+
+    document.getElementById("saltoLinea").onclick = function () {
+        var entrada = Entrada();
+        entrada += "<br>";
+        document.getElementById("entrada").value = entrada;
+    }
+
+    document.getElementById("coma").onclick = function () {
+        var entrada = Entrada();
+        entrada += ",";
+        document.getElementById("entrada").value = entrada;
+    }
+
+    document.getElementById("punto").onclick = function () {
+        var entrada = Entrada();
+        entrada += ".";
+        document.getElementById("entrada").value = entrada;
+    }
+}
+
+/** Si el valor de mayusculas es 1 pondra solo una vez en mayusculas y devolvera el valor a 0, si
+ * mayusculas es igual a 2 pondra todo en mayusculas hasta que le volvamos a hacer click, en cualquier otro
+ * caso lo pondra en minusculas
+ */
+function Letras(letra) {
+    if (mayusculas == 1) {
+        document.getElementById("entrada").value += letra.toUpperCase();
+        mayusculas = 0;
+    } else if (mayusculas == 2) {
+        document.getElementById("entrada").value += letra.toUpperCase();
+    } else {
+        document.getElementById("entrada").value += letra.toLowerCase();
     }
 }
 
@@ -247,37 +262,6 @@ function EliminarElemento() {
     }
 }
 
-//Nos permite generar los botones de letras de la zona de teclado y que tengan una clase llamada teclado
-function GenerarTeclado() {
-
-    //La array de todas las teclas nos permite definir cuantas teclas se van a generar
-    var abecedario = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ", "z", "x", "c", "v", "b", "n", "m"];
-    var salidaTeclado = document.getElementById("teclado"); //Cogemos el punto de la zona teclado
-    for (let index = 0; index < abecedario.length; index++) {
-        var button = document.createElement("button"); //Creamos el elementos boton para cada tecla
-        button.innerHTML = abecedario[index]; //Insertamos en cada boton una letra diferente de nuestro array abecedario
-        button.classList.add("tecla"); //Añadimos dentro de cada boton la clase tecla
-        salidaTeclado.appendChild(button); //Hacemos que el boton sea un hijo de nuestra zona teclado
-    }
-
-    teclado = document.getElementsByClassName("tecla"); //Nos define que todo elemento que tenga la clase tecla se guarda en teclado 
-}
-
-//Nos permite generar los emojis en la zona de teclado
-function GenerarEmoji() {
-
-    //La array de todas las imagenes que nos permite definir cuantas imagenes se crearan
-    var emoji = ["imagenes/sonrisa.png", "imagenes/money.png", "imagenes/zipper.png"];
-    var salidaTeclado = document.getElementById("teclado"); //Cogemos el punto de la zona teclado
-    for (let index = 0; index < emoji.length; index++) {
-        var imagen = document.createElement("img"); //Crearemos el elemento imagen para cada emoji
-        imagen.src = emoji[index]; //Meteremos dentro de cada imagen la referencia al emoji
-        imagen.classList.add("emoji"); //Añadimos dentro de cada emoji la clase emoji
-        salidaTeclado.appendChild(imagen); //Hacemos que la imagen sea un hijo de nuestra zona teclado
-    }
-
-    tecladoEmoji = document.getElementsByClassName("emoji"); //Nos define que todo elemento que tenga la clase emoji se guarda en tecladoEmoji 
-}
 
 /*Enviara los datos que queremos que aparezcan como mensajes*/
 function Enviar(imagen) {
