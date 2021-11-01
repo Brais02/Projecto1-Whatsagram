@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whatsagram 0.8</title>
+    <title>Whatsagram 1.0</title>
     <link rel="shortut icon" type="image/png" href="imagenes/icon.png" sizes="32x32">
 
     <!-- Google Font -->
@@ -21,22 +21,22 @@
 </head>
     
 <body>
-    <div id="bordes">
+    <main>
         <section id="uno"></section>
         <section id="caja">
-            <article id="cabecera">
-                <img src="imagenes/icon.png" id="iconoUsuario">
-                <h1 id="nombreUsuario">Antonio</h1>
-            </article>
+            <header>
+                <img src="imagenes/IconoPersona.png" id="iconoUsuario">
+                <h1 id="nombreUsuario">Giorgio de Chirico</h1>
+            </header>
             <article id="salida"></article>
             <article id="textarea">
-                <img id="emoji" src="imagenes/money.png">
+                <img id="iconoEmoji" class="iconoTeclado" src="imagenes/money.png">
                 <input id="entrada" type="text" onkeypress="Intro(event)">
                 <img id="enviar" src="imagenes/Send-Image.png">
             </article>
             <article id="teclado"></article>
         </section>
-    </div>
+    </main>
 </body>
 
 </html>
