@@ -1,5 +1,6 @@
+    /*ELEMENTOS GENERICOS*/
 body {
-    background-image: url("../imagenes/Background-Webpage-Image.jpeg");
+    background-image: url("../imagenes/Background-Webpage-Image.png");
     background-size: cover;
     background-position: center;
     margin: 0px;
@@ -12,12 +13,12 @@ p {
 }
 
 button {
-    background-color: white;
+    background-color: whitesmoke;
     width: 9vw;
 }
 
 button:hover {
-    background-color: whitesmoke;
+    background-color: white;
     font-weight: bolder;
 }
 
@@ -25,6 +26,7 @@ button:active {
     background-color: aliceblue;
 }
 
+    /*GRID BOX*/
 #caja {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -37,28 +39,27 @@ button:active {
         "teclado teclado teclado";
 }
 
-.hora {
-    font-size: 11px;
-    padding-left: inherit;
-}
-
-#cabecera {
+    /*AREA DE LA CABECERA EN GRID*/
+header {
     grid-area: cabecera;
+    height: 7vh;
     background-color: #075F56;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    justify-content: center;
+    font-family: 'Cinzel', serif;
 }
 
 #iconoUsuario {
-    height: 5vh;
+    height: 7vh;
+    padding-left: 3vw;
 }
 
 #nombreUsuario {
     color: white;
+    padding-left: 7%;
 }
 
+    /*AREA DEL MENSAJE EN GRID*/
 #salida {
     grid-area: mensage;
     background-image: url("../imagenes/background-image-whatsapp.png");
@@ -67,11 +68,16 @@ button:active {
     background-size: cover;
 
     padding: 2px;
-    height: 62vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     overflow: auto;
+}
+
+.hora {
+    font-size: 11px;
+    padding-left: inherit;
 }
 
 .fecha {
@@ -92,13 +98,14 @@ button:active {
     padding: 1vh;
     margin: 1vh;
     max-width: 98vw;
-    border-radius: 5vh;
+    border-radius: 3vh;
 }
 
 .mensaje:hover {
     filter: drop-shadow(5px 5px 8px blue);
 }
 
+    /*AREA DE LA TEXTAREA EN GRID*/
 #textarea {
     grid-area: textarea;
     background-color: white;
@@ -122,27 +129,43 @@ button:active {
     filter: invert(100%);
 }
 
-#emoji {
+#iconoEmoji {
     width: 5vh;
 }
 
+.iconoTeclado {
+    height: 5vh;
+    filter: grayscale(50%);
+}
+
+.iconoTeclado:hover {
+    filter: grayscale(0%);
+}
+
 .emoji {
-    height: 10vh;
+    height: 18vh;
+    filter: grayscale(30%);
+}
+
+.emoji:hover {
+    filter: grayscale(0%);
 }
 
 .emojiEnviado {
     height: 4vh;
 }
 
+    /*AREA DEL TECLADO EN GRID*/
 #teclado {
     grid-area: teclado;
     background-color: grey;
     display: flex;
-    height: 22vh;
+    height: 21vh;
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: row;
     padding: 1vw;
+    overflow: auto;
 }
 
 #mayusculas {
@@ -194,7 +217,53 @@ button:active {
     width: 13vw;
 }
 
+/*CAMBIOS REALIZADOS PARA UN SOBREMESA*/
 @media (min-width: 601px) {
+
+        /*ELEMENTOS GENERICOS*/
+    button {
+        width: 6vw;
+    }
+
+        /*CREACIÓN DE LOS BORDES DE LA WEB*/
+    main {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    #uno {
+        order: 1;
+    }
+
+    #caja {
+        order: 2;
+    }
+
+        /*AREA DE LA CABECERA EN GRID*/
+    #nombreUsuario {
+        padding-left: 21%;
+    }
+
+        /*AREA DEL MENSAJE EN GRID*/
+    #salida {
+        height: 64vh;
+    }
+
+    .emojiEnviado {
+        height: 3vh;
+    }
+
+
+        /*AREA DE LA TEXTAREA EN GRID*/
+    #entrada {
+        height: 70%;
+    }
+
+        /*AREA DEL TECLADO EN GRID*/
+    .emoji {
+        height: 15vh;
+    }
+
     #reset {
         order: 1;
         width: 7vw;
@@ -209,18 +278,6 @@ button:active {
         order: 3;
         width: 8vw;
     }
-    #saltoLinea {
-        width: 8vw;
-    }
-
-    button{
-        width: 6vw;
-    }
-
-    #borrarPrimerCaracter {
-        order: 7;
-        width: 8vw;
-    }
 
     #borrarUltimoCaracter {
         order: 4;
@@ -231,28 +288,12 @@ button:active {
         width: 20vw;
     }
 
-    #bordes {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+    #borrarPrimerCaracter {
+        order: 7;
+        width: 8vw;
     }
 
-    #uno {
-        order: 1;
-    }
-
-    #caja {
-        order: 2;
-    }
-
-    #entrada {
-        height: 70%;
-    }
-
-    .emojiEnviado {
-        height: 3vh;
-    }
-
-    #salida {
-        height: 64vh;
+    #saltoLinea {
+        width: 8vw;
     }
 }
