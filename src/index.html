@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whatsagram 0.3</title>
+    <title>Whatsagram 0.8</title>
     <link rel="shortut icon" type="image/png" href="imagenes/icon.png" sizes="32x32">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
 
     <!-- A los estilos -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
@@ -13,16 +19,26 @@
     <!-- El JavaScript -->
     <script src="js/script.js"></script>
 </head>
+
 <body>
-    <div id="salida"></div>
-    <input id="entrada" type="text">
-    <button onclick="Enviar()">Enviar</button>
-    <button onclick="Reset()">C</button>
-    <button id="tecla">a</button>
-    <button class="tecla">b</button>
-    <button class="tecla">c</button>
-    <button onclick="Espacio()">Espacio</button>
-    <button onclick="Mayuscula()" ondblclick="Mayusculas()">Mayusculas</button>
-    <p>Probando</p>
+    <main>
+        <section id="uno"></section>
+        <section id="caja">
+            <header>
+                
+                <img src="imagenes/IconoPersona.png" id="iconoUsuario">
+            
+                <h1 id="nombreUsuario">Giorgio de Chirico</h1>
+            </header>
+            <article id="salida"></article>
+            <article id="textarea">
+                <img id="iconoEmoji" class="iconoTeclado" src="imagenes/money.png">
+                <input id="entrada" type="text" onkeypress="Intro(event)">
+                <img id="enviar" src="imagenes/Send-Image.png">
+            </article>
+            <article id="teclado"></article>
+        </section>
+    </main>
 </body>
+
 </html>
