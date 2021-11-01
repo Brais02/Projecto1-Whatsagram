@@ -70,6 +70,11 @@ function Entrada() {
     return document.getElementById("entrada").value;
 }
 
+/** Para poder resetear el texto */
+function Reset() {
+    document.getElementById("entrada").value = "";
+}
+
 //Cuando se le de a intro desde el input de texto se enviara el mensaje
 function Intro(evento) {
     var x = evento.code; //Nos guarda el codigo de la tecla a la que hemos pulsado
