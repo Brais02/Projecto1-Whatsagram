@@ -59,4 +59,4 @@
 - [x] El area de la cabecera.
 - [x] Que nos permita bajar en caso de que tengamos muchos emojis.
 - [x] Al pasar el ratón por encima del mensaje se bordea.
-![alt text](https://upload.wikimedia.org/wikipedia/commons/e/e4/Manolo_Blahn%C3%ADk_%282017%29.jpg)
+![alt text](https://github.com/Brais02/Projecto1-Whatsagram/blob/main/src/imagenes/Background-Webpage-Image.png)
