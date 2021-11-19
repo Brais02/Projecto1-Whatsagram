@@ -59,3 +59,4 @@
 - [x] El area de la cabecera.
 - [x] Que nos permita bajar en caso de que tengamos muchos emojis.
 - [x] Al pasar el ratón por encima del mensaje se bordea.
+![alt text](http://url/to/img.png)
